@@ -7,7 +7,6 @@
     "react-dom": "^16.6.3",
     "react-dropzone": "^7.0.1",
     "react-scripts": "2.1.1",
-    "tone": "^0.12.80",
     "wavesurfer.js": "^2.1.0"
   },
   "scripts": {
@@ -24,5 +23,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "1.15.3",
+    "underscore": "^1.9.1"
+  }
 }

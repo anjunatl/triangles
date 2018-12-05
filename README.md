@@ -1,44 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+△△ Triangles ▽▽
+===
 
-## Available Scripts
+Idea
+---
+* Database of song reference notes
+* v1 Goal: Timestamp-referenced note-taking
+* Ideally: BPM-matched note-taking w/ hotkeys, midi, or audio support for more efficient note-taking
 
-In the project directory, you can run:
+### Concepts
+* Uploaded songs have an audio link, a bpm, a key, & a collection of Notes
+* Notes are timestamped instances of Ideas
+* Ideas are essentially taggable descriptions of things like sounds, rhytmns, chords, & emotions perceived while listening to the Song
 
-### `npm start`
+There's a point in [EDMProd's interview with Anki](https://soundcloud.com/edmprod/episode99) that he mentions diving through the library of music that made impressions on him over his life, took notes on what in the song made it stick out to him, and then noticed patterns over time.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Future Ideas?
+* Soundcloud, YouTube link support instead of just file upload
+* Rhythm programming using the web audio API
+    * Specify or detect BPM
+    * Optional metronome layer + timing-tuning offset control
+    * Record (/quantize) taps + velocities using a microphone feed of the user tapping on a desk in a quiet room - listen to the sample w/ headphones on & drum away
+    * [wavesurfer's microphone plugin](https://wavesurfer-js.org/plugins/microphone.html) for viz?
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Interesting reads along the way
+* [Calling functions in time with a BPM - 2011](https://stackoverflow.com/questions/8333981/how-do-you-sync-javascript-animations-with-the-tempo-of-a-song-without-building)
+* [Detecting tempo of a song using browser's Audio API - 2014](https://jmperezperez.com/bpm-detection-javascript/) - [[demo]](https://jmperezperez.com/beats-audio-api/)
+* [Beatroot algorithm BPM detection in JS - 2017](https://github.com/killercrush/music-tempo) - [[docs]](https://killercrush.github.io/music-tempo/docs/index.html)
+* [ToneJS Time](https://github.com/Tonejs/Tone.js/wiki/Time), [Transport](https://github.com/Tonejs/Tone.js/wiki/Transport), [Player (Sampler)](https://tonejs.github.io/docs/#Player)
+* [wavesurfer.js backends - WebAudio vs MediaElement - 2017](https://github.com/katspaugh/wavesurfer.js/issues/676#issuecomment-278166199)
+* [Interacting with Soundcloud's embed widget API](https://developers.soundcloud.com/docs/api/sdks#player)
+    * [wavesurfer can't seem to read it, maybe](https://github.com/katspaugh/wavesurfer.js/issues/905)
+* [wavesurfer plugin to load videos via video js](https://github.com/collab-project/videojs-wavesurfer#examples)
 
-### `npm test`
+### Notes
+* Currently using `MediaElement` for `wavesurfer.js`'s backend
+    * When wavesurfer loads with a `cachedPeaks` array, with annotations, and without `backend=MediaElement` & `.load()`'s `preload=true`, the waveform will display without annotations until an interaction with the wavesurfer instance causes it to load
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[△](https://twitter.com/mmmatches/status/1016870386682736641)

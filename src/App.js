@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+
+import AnnotationEditor from './AnnotationEditor'
+import AnnotationsApi from './AnnotationsApi'
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      annotationKey: '',
+      annotationData: null
+    }
+  }
+
+  async componentWillMount() {
+    const annotationData = await AnnotationsApi.getAnnotation()
+    console.log("setting annotation w/ id " + annotationData.id)
+    this.setState({
+      annotationKey: annotationData.id,
+      annotationData: annotationData
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <AnnotationEditor annotationData={this.state.annotationData} key={this.state.annotationKey}></AnnotationEditor>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
