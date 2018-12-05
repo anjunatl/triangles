@@ -36,4 +36,12 @@ There's a point in [EDMProd's interview with Anki](https://soundcloud.com/edmpro
 * Currently using `MediaElement` for `wavesurfer.js`'s backend
     * When wavesurfer loads with a `cachedPeaks` array, with annotations, and without `backend=MediaElement` & `.load()`'s `preload=true`, the waveform will display without annotations until an interaction with the wavesurfer instance causes it to load
 
+#### Working with wavedriver.js
+- Clone [the repo](https://github.com/katspaugh/wavesurfer.js)
+- Run `npm install` in the repo
+- To build: `npm run build` & `npm run build:normal` seemed to work for me
+- To fix lint issues: run Prettier on files before building
+
+I ran into [this play/pause promise error](https://developers.google.com/web/updates/2017/06/play-request-was-interrupted) while trying to add a shift+click region loop to this project. I got the same error on their [annotation example](https://wavesurfer-js.org/example/annotation/index.html) and wanted to try debugging the issue. _(Both examples use the MediaElement backend. Looping regions might be possible without that specification.)_
+
 [△](https://twitter.com/mmmatches/status/1016870386682736641)

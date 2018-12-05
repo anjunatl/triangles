@@ -16,7 +16,6 @@ class App extends Component {
 
   async componentWillMount() {
     const annotationData = await AnnotationsApi.getAnnotation()
-    console.log("setting annotation w/ id " + annotationData.id)
     this.setState({
       annotationKey: annotationData.id,
       annotationData: annotationData
